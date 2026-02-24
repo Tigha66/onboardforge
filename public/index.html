@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OnboardForge - Customer Onboarding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>.glass{background:rgba(255,255,500,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}.gradient-text{background:linear-gradient(135deg,#06b6d4,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}</style>
+</head>
+<body class="bg-[#0a0a0f] min-h-screen text-white">
+  <header class="glass sticky top-0">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center shadow-lg"><i class="fas fa-rocket text-2xl"></i></div><div><h1 class="text-2xl font-bold gradient-text">OnboardForge</h1><p class="text-xs text-slate-400">Customer Onboarding Automation</p></div></div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-8 py-10">
+    <div class="grid grid-cols-4 gap-6 mb-10">
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Active Onboardings</p><p class="text-4xl font-bold">28</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Completed</p><p class="text-4xl font-bold text-green-400">156</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Avg. Time</p><p class="text-4xl font-bold">4.2d</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">NPS Score</p><p class="text-4xl font-bold text-cyan-400">9.1</p></div>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-magic text-cyan-400 mr-3"></i>Create Onboarding Flow</h2>
+        <div class="space-y-4"><input placeholder="Customer name..." class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500"><select class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white"><option>Enterprise</option><option>Professional</option><option>Starter</option></select><button class="w-full py-4 bg-gradient-to-r from-cyan-500 to-violet-600 rounded-xl font-semibold"><i class="fas fa-wand-magic-sparkles mr-2"></i>Generate Flow</button></div>
+      </div>
+      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-tasks text-violet-400 mr-3"></i>Active Flows</h2>
+        <div class="space-y-3">
+          {[{name:'Acme Corp',plan:'Enterprise',step:'Step 3/8',progress:62},{name:'TechStart Inc',plan:'Professional',step:'Step 2/5',progress:40},{name:'LocalShop',plan:'Starter',step:'Complete',progress:100}].map(f=>`
+          <div class="bg-white/5 rounded-xl p-4"><div class="flex items-center justify-between mb-2"><span class="font-semibold">${f.name}</span><span class="text-xs text-slate-400">${f.step}</span></div><div class="h-2 bg-white/10 rounded-full"><div class="h-full bg-gradient-to-r from-cyan-500 to-violet-500 rounded-full" style="width:${f.progress}%"></div></div></div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
